@@ -21,6 +21,15 @@ RSpec.describe TasksController, type: :controller do
     end
   end
 
+  describe "tasks#destroy" do
+    it "should allow tasks to be deleted" do
+      task = FactoryBot.create(:task)
+      delete :destroy, params: {id: task.id}
+      expect(response).to have_http_status(:success)
+   
+     end
+  end
+
   describe "tasks#create" do
     it "should allow new tasks to be created" do
       post :create, params: {task: {title: "Fix things"}}

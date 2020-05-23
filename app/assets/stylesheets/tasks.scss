@@ -16,7 +16,7 @@ button {
   vertical-align: baseline;
   font-family: inherit;
   font-weight: inherit;
-  color: inherit;
+  color: red;
   -webkit-appearance: none;
   appearance: none;
   -webkit-font-smoothing: antialiased;
@@ -106,9 +106,14 @@ input[type="checkbox"] {
 
 .new-todo {
   padding: 16px 16px 16px 60px;
-  border: none;
-  background: rgba(0, 0, 0, 0.003);
+  border: 1;
+  background: rgba(100, 100, 100, 0.003);
   box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+}
+.time
+{
+  font-size: 18px;
+  background: #C8EDEC ;
 }
 
 .main {
@@ -207,6 +212,11 @@ label[for='toggle-all'] {
 }
 
 .todo-list li.completed label {
+  color: #d9d9d9;
+  text-decoration: line-through;
+}
+
+.toggle input.checked label {
   color: #d9d9d9;
   text-decoration: line-through;
 }
@@ -381,4 +391,28 @@ html .clear-completed:active {
 }
 .author a {
   color: #b83f45;
+}
+.todo-list button.delete {
+    display: inline-block;
+    top: 10px;
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+}       
+.new-form
+{
+  color: inherit;
+  margin: 3px;
+  padding: 3px 7px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+
+
+.time
+{
+  font-size: 18px;
+  background: #C8EDEC ;
 }
