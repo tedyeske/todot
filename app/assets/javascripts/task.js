@@ -4,7 +4,7 @@ $(function() {
   // <li> tags
   var today = new Date();
   document.getElementById('time').innerHTML=today;
-  
+ 
   function taskHtml(task) {
     var checkedStatus = task.done ? "checked" : "";
     var liClass = task.done ? "completed" : "";
@@ -37,7 +37,7 @@ $(function() {
       var $li = $("#listItem-" + data.id);
       $li.replaceWith(liHtml);
       $('.toggle').change(toggleTask);
-
+      location.reload(); 
     } );
   }
  
@@ -50,7 +50,7 @@ $(function() {
     });
     var ulTodos = $('.todo-list');
     ulTodos.html(htmlString);
-
+    $('.toggle').change(toggleTask);
     $('.delete').click(function()
     {
       var itemid = this.id;
@@ -65,7 +65,7 @@ $(function() {
       
       delitem.remove();//delete from the page
       $('.toggle').change(toggleTask);
-     
+      
     } );
   
     }); 
@@ -80,25 +80,7 @@ $(function() {
         title: textbox.val()
       }
     };
-    $('.delete').click(function()
-    {
-      var itemid = this.id;
-      var listid = "listitem-"+itemid;
-      var delitem = this.parentNode.parentNode;
-      
-      //delete the task that had itemid using DELETE method
-      $.post("/tasks/" + itemid, {
-      _method: "DELETE",
-      
-    }).success(function(data) {
-      
-      delitem.remove();//delete from the page
-      $('.toggle').change(toggleTask);
-     
-    } );
-  
-    }); 
-    $.post("/tasks", payload).success(function(data) {
+       $.post("/tasks", payload).success(function(data) {
       var htmlString = taskHtml(data);
       var ulTodos = $('.todo-list');
       ulTodos.append(htmlString);

@@ -216,7 +216,7 @@ label[for='toggle-all'] {
   text-decoration: line-through;
 }
 
-.toggle input.checked label {
+.view input:checked~ label {
   color: #d9d9d9;
   text-decoration: line-through;
 }
